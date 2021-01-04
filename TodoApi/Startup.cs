@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
@@ -32,24 +33,12 @@ namespace TodoApi
             // Register Swagger Generator
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "My API",
                     Description = "API Example ASP.NetCore 2.1",
-                    TermsOfService = "None",
-                    Contact = new Contact
-                    {
-                        Name = "Jason Williams",
-                        Email = "jasonwilliams@letuscode.co.uk",
-                        Url = "http://letuscode.co.uk"
-                    },
-                    License = new License
-                    {
-                        Name = "open source",
-                        Url = "http://example.com"
-
-                    }
+                   
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
